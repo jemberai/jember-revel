@@ -1,0 +1,46 @@
+post:
+  tags:
+    - Authorization
+  summary: Get JWT Token
+  description: Using client credentials to get a JWT token
+  operationId: postForJWT
+  parameters:
+      - in: header
+        name: Authorization
+        description: Base64 Encoded Client ID and Client Secret `Basic base64(client_id:client_secret)`
+        schema: 
+          type: string
+  security: 
+    -  BasicAuth: []
+  requestBody:
+    content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              grant_type:
+                type: string
+                enum: ["client_credentials"]
+              scope:
+                type: string
+                example: "read write"
+    description: "User profile to be added to the database."
+    required: true
+  responses:
+    '200':
+      description: Successfully Authenticated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              access_token:
+                type: string
+              token_type:
+                type: string
+              expires_in:
+                type: integer
+              scope:
+                type: string
+    '405':
+      description: Invalid input
