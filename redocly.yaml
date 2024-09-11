@@ -1,6 +1,8 @@
 apis:
   main:
     root: ./openapi.yaml
+  data-intake:
+    root: ./dataintake-oa3/openapi/openapi.yaml
 extends:
   - recommended
 rules:
