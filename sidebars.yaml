@@ -6,7 +6,7 @@
     label: Jember Agents
 - group: APIs
   items:
-  - page: api_catalog/dataintake-oa3/openapi.yaml
+  - page: api_catalog/jember-oa3/openapi.yaml
     label: Data Intake
   - page: api_catalog/jember-messages-oa3/openapi.yaml
     label: Jember Messages
