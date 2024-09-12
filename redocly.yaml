@@ -44,3 +44,23 @@ catalog:
 navbar:
   items: 
     -  page: /jemberai-apis/
+footer:
+  copyrightText: Copyright © Jember Ai 2024. All right reserved.
+  items: 
+    -  label: Legal
+       items: 
+        -  page: docs/footer/legal/terms.md
+           label: Terms of Use
+        -  page: docs/footer/legal/privacy.md
+           label: Privacy Notice
+        -  page: docs/footer/cookie.md
+           label: Cookie Notice
+    - label: Support
+      items: 
+        -  page: docs/footer/support/faq.md
+           label: FAQ
+    - label: Social
+      items: 
+        -  label: X
+           href: 'https://x.com/spring_guru'
+           external: true
