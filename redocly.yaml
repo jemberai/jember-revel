@@ -43,6 +43,8 @@ catalog:
           type: [openapi]
 navbar:
   items: 
+    -  page: index.md
+       label: Home
     -  page: /jemberai-apis/
 footer:
   copyrightText: Copyright © Jember Ai 2024. All right reserved.
