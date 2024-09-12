@@ -4,9 +4,9 @@
   items:
   - page: docs/agents/index.md
     label: Jember Agents
-- group: APIs
+- group: Jembar APIs
   items:
   - page: api_catalog/jember-oa3/openapi.yaml
-    label: Data Intake
+    label: Data Intake RAG
   - page: api_catalog/jember-messages-oa3/openapi.yaml
     label: Jember Messages
