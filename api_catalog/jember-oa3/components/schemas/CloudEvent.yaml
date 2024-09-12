@@ -1,0 +1,115 @@
+description: > 
+  CloudEvents Specification JSON Schema. The required attributes are `id`, `source`, `specversion`, and `type`. 
+  The `data` attribute is optional. The `datacontenttype` attribute is required if the `data` attribute is present. 
+  Additional properties may be included in the event.
+type: object
+additionalProperties: true
+properties:
+  id:
+    description: Identifies the event.
+    $ref: "#/definitions/iddef"
+    example: A234-1234-1234
+  source:
+    description: Identifies the context in which an event happened.
+    $ref: "#/definitions/sourcedef"
+    example: https://github.com/cloudevents
+  specversion:
+    description: The version of the CloudEvents specification which the event uses.
+    $ref: "#/definitions/specversiondef"
+    example: "1.0"
+  type:
+    description: Describes the type of event related to the originating occurrence.
+    $ref: "#/definitions/typedef"
+    example: com.github.pull_request.opened
+  datacontenttype:
+    description: > 
+      Content type of the data value. Must adhere to [RFC 2046](https://www.iana.org/assignments/media-types/media-types.xhtml) format. Some common content types are: 
+        * text/xml 
+        * application/json 
+        * application/pdf
+        * text/plain
+        * text/csv
+        * application/msword
+        * text/html
+        * image/jpeg
+        * image/png
+        * image/gif
+        * application/octet-stream
+        * application/x-www-form-urlencoded
+    $ref: "#/definitions/datacontenttypedef"
+    example: text/xml
+  dataschema:
+    description: Identifies the schema that data adheres to.
+    $ref: "#/definitions/dataschemadef"
+  subject:
+    description: Describes the subject of the event in the context of the event
+      producer (identified by source).
+    $ref: "#/definitions/subjectdef"
+    example: mynewfile.jpg
+  time:
+    description: Timestamp of when the occurrence happened. Must adhere to RFC 3339. Example - `2018-04-05T17:31:00Z`
+    $ref: "#/definitions/timedef"
+    example: 2018-04-05T17:31:00Z
+  data:
+    description: The event payload.
+    $ref: "#/definitions/datadef"
+    example: <much wow="xml"/>
+  data_base64:
+    description: Base64 encoded event payload. Must adhere to RFC4648.
+    $ref: "#/definitions/data_base64def"
+    example: Zm9vYg==
+required:
+  - id
+  - source
+  - specversion
+  - type
+definitions:
+  iddef:
+    type: string
+    minLength: 1
+  sourcedef:
+    type: string
+    format: uri-reference
+    minLength: 1
+  specversiondef:
+    type: string
+    minLength: 1
+    enum: ["1.0", "1.0.1", "1.0.2"]
+  typedef:
+    type: string
+    minLength: 1
+  datacontenttypedef:
+    type:
+      - string
+      - "null"
+    minLength: 1
+  dataschemadef:
+    type:
+      - string
+      - "null"
+    format: uri
+    minLength: 1
+  subjectdef:
+    type:
+      - string
+      - "null"
+    minLength: 1
+  timedef:
+    type:
+      - string
+      - "null"
+    format: date-time
+    minLength: 1
+  datadef:
+    type:
+      - object
+      - string
+      - number
+      - array
+      - boolean
+      - "null"
+  data_base64def:
+    type:
+      - string
+      - "null"
+    contentEncoding: base64
