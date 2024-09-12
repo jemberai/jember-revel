@@ -7,6 +7,6 @@
     "private": true,
     "description": "Demo for John",
     "dependencies": {
-      "@redocly/revel": "0.99.2"
+      "@redocly/realm": "0.99.2"
     }
 }
