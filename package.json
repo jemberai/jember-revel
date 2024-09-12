@@ -1,0 +1,12 @@
+{
+    "name": "demo project",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "npx @redocly/cli preview"
+    },
+    "private": true,
+    "description": "Demo for John",
+    "dependencies": {
+      "@redocly/revel": "latest"
+    }
+  }
