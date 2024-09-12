@@ -27,3 +27,15 @@ rules:
 
 ignore:
   - .github
+catalog:
+  jember_catalog:
+    title: Jember AI APIs
+    description: Discover what Jember AI's APIs can do for you!
+    slug: /jemberai-apis/
+    items:
+      - directory: ./dataintake-oa3/openapi
+        includeByMetadata:
+          type: [openapi]
+navbar:
+  items: 
+    -  page: /jemberai-api/
