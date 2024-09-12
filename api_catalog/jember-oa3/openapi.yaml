@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   version: 0.0.1
-  title: jember.ai API
+  title: Data Intake RAG API
   termsOfService: https://jember.ai/terms/
   contact:
     name: Contact our support
@@ -120,7 +120,7 @@ tags:
   - name: Data Query
     description: Query documents in the Data Intake vector store.
 x-tagGroups:
-  - name: jember.ai
+  - name: Data Intake RAG APIs
     tags:
       - Authorization
       - Data Intake
