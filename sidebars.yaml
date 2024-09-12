@@ -1,7 +1,7 @@
 - group: Jember Documentation
-  - items:
-    - page: docs/agents/index.md
-      lable: Jember Agents
+  items:
+  - page: docs/agents/index.md
+    label: Jember Agents
 - group: APIs
   items:
   - page: api_catalog/dataintake-oa3/openapi.yaml
