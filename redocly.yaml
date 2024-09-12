@@ -1,8 +1,8 @@
-apis:
-  main:
-    root: ./openapi.yaml
-  data-intake:
-    root: ./dataintake-oa3/openapi/openapi.yaml
+# apis:
+#   main:
+#     root: ./openapi.yaml
+#   data-intake:
+#     root: ./dataintake-oa3/openapi/openapi.yaml
 extends:
   - recommended
 rules:
@@ -33,7 +33,10 @@ catalog:
     description: Discover what Jember AI's APIs can do for you!
     slug: /jemberai-apis/
     items:
-      - directory: ./dataintake-oa3/openapi
+      - directory: ./api_catalog/dataintake-oa3
+        includeByMetadata:
+          type: [openapi]
+      - directory: ./api_catalog/jember-messages-oa3
         includeByMetadata:
           type: [openapi]
 navbar:
