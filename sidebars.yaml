@@ -4,6 +4,7 @@
   items:
   - page: docs/agents/index.md
     label: Jember Agents
+-  page: /jemberai-apis/
 # - group: APIs
 #   items:
 #   - page: api_catalog/jember-oa3/openapi.yaml
