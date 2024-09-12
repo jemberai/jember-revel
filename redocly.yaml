@@ -41,6 +41,9 @@ catalog:
       - directory: ./api_catalog/jember-messages-oa3
         includeByMetadata:
           type: [openapi]
+      - directory: ./apt_catalog/jember-asyncapi
+        includeByMetadata:
+          type: [asyncapi]
 navbar:
   items: 
     -  page: index.md
@@ -66,5 +69,3 @@ footer:
         -  label: X
            href: 'https://x.com/spring_guru'
            external: true
-reunite:
-  ignoreLinkChecker: true
