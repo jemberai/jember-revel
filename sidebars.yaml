@@ -1,3 +1,5 @@
+- page: index.md
+  label: Home
 - group: Jember Documentation
   items:
   - page: docs/agents/index.md
