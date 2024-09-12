@@ -7,7 +7,6 @@
     "private": true,
     "description": "Demo for John",
     "dependencies": {
-        "@redocly/portal-plugin-async-api": "^1.0.259",
         "@redocly/realm": "0.99.2"
     }
 }
