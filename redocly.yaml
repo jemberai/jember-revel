@@ -38,4 +38,4 @@ catalog:
           type: [openapi]
 navbar:
   items: 
-    -  page: /jemberai-api/
+    -  page: /jemberai-apis/
