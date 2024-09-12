@@ -66,3 +66,5 @@ footer:
         -  label: X
            href: 'https://x.com/spring_guru'
            external: true
+reunite:
+  ignoreLinkChecker: true
