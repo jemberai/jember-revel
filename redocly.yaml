@@ -53,7 +53,7 @@ footer:
            label: Terms of Use
         -  page: docs/footer/legal/privacy.md
            label: Privacy Notice
-        -  page: docs/footer/cookie.md
+        -  page: docs/footer/legal/cookie.md
            label: Cookie Notice
     - group: Support
       items: 
