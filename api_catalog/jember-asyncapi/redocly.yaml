@@ -1,2 +1,0 @@
-plugins:
-  - '@redocly/portal-plugin-async-api/plugin.js'

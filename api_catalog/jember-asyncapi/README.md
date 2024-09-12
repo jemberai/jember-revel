@@ -1,2 +1,0 @@
-# jember-asyncapi
-Async API

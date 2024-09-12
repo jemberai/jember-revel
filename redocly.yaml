@@ -69,5 +69,4 @@ footer:
         -  label: X
            href: 'https://x.com/spring_guru'
            external: true
-# plugins:
-  # - '@redocly/portal-plugin-async-api/plugin.js'
+
