@@ -1,0 +1,24 @@
+- page: index.md
+  label: Home
+- group: Jember Documentation
+  items:
+  - page: docs/auth/authorization.md
+    label: API Authorization
+  - group: AI RAG Operations
+    items:
+    - page: docs/rag/dataintake.md
+      label: Data Intake
+    - page: docs/rag/dataquery.md
+      label: Data Query  
+  - page: docs/agents/index.md
+    label: Jember Agents
+- group: Jembar AI APIs
+  items:
+  - group: Production APIs
+    items:
+    - page: api_catalog/jember-oa3/openapi.yaml
+ #     label: Sidebar Label
+  - group: Under Development
+    items:
+    - page: api_catalog/jember-messages-oa3/openapi.yaml
+      label: Jember Messages

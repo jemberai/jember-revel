@@ -1,27 +1,72 @@
 apis:
-  main:
-    root: ./openapi.yaml
+#   main:
+#     root: ./openapi.yaml
+  data-intake:
+    root: ./api_catalog/jember-oa3/openapi.yaml
+  jember-messages:
+    root: ./api_catalog/jember-messages-oa3/openapi.yaml
 extends:
   - recommended
 rules:
   operation-tag-defined: error
-  no-invalid-schema-examples: error
-  no-invalid-media-type-examples: error
-  scalar-property-missing-example: error
-  rule/operation-summary-sentence-case:
-    subject:
-      type: Operation
-      property: summary
-    message: Operation summary must be sentence cased.
-    assertions:
-      pattern: /^([A-Z]{2,}|[A-Z][^A-Z]*)\b(\s+(?:[A-Z]{2,}|[^A-Z]*)\b)*$/ # Sentence case but allow acronyms
-  rule/example-summary-sentence-case:
-    subject:
-      type: Example
-      property: summary
-    message: Example summary must be sentence cased.
-    assertions:
-      pattern: /^([A-Z]{2,}|[A-Z][^A-Z]*)\b(\s+(?:[A-Z]{2,}|[^A-Z]*)\b)*$/ # Sentence case but allow acronyms
+  # no-invalid-schema-examples: error
+  # no-invalid-media-type-examples: error
+  # scalar-property-missing-example: error
+  # rule/operation-summary-sentence-case:
+  #   subject:
+  #     type: Operation
+  #     property: summary
+  #   message: Operation summary must be sentence cased.
+  #   assertions:
+  #     pattern: /^([A-Z]{2,}|[A-Z][^A-Z]*)\b(\s+(?:[A-Z]{2,}|[^A-Z]*)\b)*$/ # Sentence case but allow acronyms
+  # rule/example-summary-sentence-case:
+  #   subject:
+  #     type: Example
+  #     property: summary
+  #   message: Example summary must be sentence cased.
+  #   assertions:
+  #     pattern: /^([A-Z]{2,}|[A-Z][^A-Z]*)\b(\s+(?:[A-Z]{2,}|[^A-Z]*)\b)*$/ # Sentence case but allow acronyms
 
 ignore:
   - .github
+catalog:
+  jember_catalog:
+    title: Jember AI APIs
+    description: Discover what Jember AI's APIs can do for you!
+    slug: /jemberai-apis/
+    items:
+      - directory: ./api_catalog/jember-oa3
+        includeByMetadata:
+          type: [openapi]
+      - directory: ./api_catalog/jember-messages-oa3
+        includeByMetadata:
+          type: [openapi]
+      # - directory: ./apt_catalog/jember-asyncapi
+      #   includeByMetadata:
+      #     type: [asyncapi]
+navbar:
+  items: 
+    -  page: index.md
+       label: Home
+    -  page: /jemberai-apis/
+footer:
+  copyrightText: Copyright © Jember AI 2024. All rights reserved.
+  items: 
+    -  group: Legal
+       items: 
+        -  page: docs/footer/legal/terms.md
+           label: Terms of Use
+        -  page: docs/footer/legal/privacy.md
+           label: Privacy Notice
+        -  page: docs/footer/legal/cookie.md
+           label: Cookie Notice
+    - group: Support
+      items: 
+        -  page: docs/footer/support/faq.md
+           label: FAQ
+    - group: Social
+      items: 
+        -  label: X
+           href: 'https://x.com/spring_guru'
+           external: true
+

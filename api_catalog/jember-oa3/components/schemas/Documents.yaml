@@ -1,0 +1,4 @@
+description: List of Documents
+type: array
+items:
+  $ref: Document.yaml

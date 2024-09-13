@@ -1,0 +1,61 @@
+get:
+  tags:
+    - Data Intake
+  summary: List Cloud Events by status
+  description: "This operation lets you list users by their status. Multiple status values can be provided in a single request by using comma-separated strings. Only administrators can use this operation.\n \n**This is an example of a deprecated operation.**"
+  operationId: listCloudEvents
+ # parameters: 
+  responses:
+    '200':
+      description: List of Cloud Events
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/CloudEvent.yaml
+
+    '400':
+      description: Invalid status value was provided in the request
+  security:
+    - BearerAuth: []
+post:
+  tags:
+    - Data Intake
+  summary: Create a Cloud Event
+  description: This Operation Creates a new Cloud Event
+  operationId: createCloudEvent
+  parameters:
+      - in: header
+        name: ce-specversion
+        description: Required if request body is application/json
+        schema: 
+          type: string
+          enum: ["1.0", "1.0.1", "1.0.2"]
+      - in: header
+        name: ce-id
+        description: Required if request body is application/json
+        schema: 
+          type: string
+      - in: header
+        name: ce-type
+        description: Required if request body is application/json
+        schema: 
+          type: string
+  security:
+    - BearerAuth: []
+  requestBody:
+    content:
+        cloudevents+json:
+          schema:
+            $ref: ../components/schemas/CloudEvent.yaml
+        application/json:
+          schema:
+            type: object
+    description: "User profile to be added to the database."
+    required: true
+  responses:
+    '200':
+      description: Successfully created a event
+    '405':
+      description: Invalid input

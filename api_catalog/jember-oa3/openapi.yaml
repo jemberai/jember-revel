@@ -1,0 +1,66 @@
+openapi: 3.1.0
+info:
+  version: 0.0.1
+  title: Jember AI OpenAPI Specification
+  termsOfService: https://jember.ai/terms/
+  contact:
+    name: Contact our support
+    email: info@jember.ai
+    url: http://jember.ai/contact
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  x-logo:
+    url: https://cdn.vectorstock.com/i/500p/34/32/ai-artificial-intelligence-cyber-background-vector-35153432.jpg
+    altText: jember.ai logo
+  description: >
+    This is the OpenAPI specification for the jember.ai APIs. Using the Jember AI APIs, you can
+    can unlock the power of AI for your enterprise.
+tags:
+  - name: Authorization
+    description: >
+      ## jember.ai Authorization API
+
+      The jember.ai APIs use OAuth2 for authorization. The APIs support the client credentials grant type.
+
+      The client must include the token in the Authorization header of the request. The token should be
+      prefixed with the token type. For example, `Bearer <token>`.
+      
+  - name: Data Intake
+    description: > 
+      Use the Data Intake API to load data into Jmeber AI. The Data Intake API follows the CloudEvents specification.
+      By using this specification, you can send data to Jember AI in nearly any format. Jember AI supports most popular 
+      mime types, including JSON, XML, and CSV.
+  - name: Data Query
+    description: Query documents in the Data Intake vector store.
+x-tagGroups:
+  - name: Authorization APIs
+    tags:
+      - Authorization
+  - name: Data Intake RAG APIs
+    tags:
+      - Data Intake
+      - Data Query
+servers:
+  - url: https://api-dev.jember.ai
+    description: Development server
+  - url: https://api.jember.ai/v1
+    description: Production server
+paths:
+  '/v1/oauth2/token':
+    $ref: paths/oauth2/token.yaml
+  '/v1/dataintake':
+    $ref: 'paths/dataintake.yaml'
+  '/v1/dataintake/{event_id}':
+      $ref: 'paths/dataintake{event_id}.yaml'
+  '/v1/query':
+    $ref: 'paths/query.yaml'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    BasicAuth:
+      type: http
+      scheme: basic 
