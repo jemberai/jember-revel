@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   version: 0.0.1
-  title: Data Intake RAG API
+  title: Jember AI OpenAPI Specification
   termsOfService: https://jember.ai/terms/
   contact:
     name: Contact our support
@@ -14,115 +14,31 @@ info:
     url: https://cdn.vectorstock.com/i/500p/34/32/ai-artificial-intelligence-cyber-background-vector-35153432.jpg
     altText: jember.ai logo
   description: >
-    The jember.ai API is a RESTful API which is based upon the [CloudEvents](https://cloudevents.io/) specification. The CloudEvent 
-    specification provides a common way of describing event data.  
+    This is the OpenAPI specification for the jember.ai APIs. Using the Jember AI APIs, you can
+    can unlock the power of AI for your enterprise.
 tags:
   - name: Authorization
     description: >
       ## jember.ai Authorization API
 
-      The jember.ai APIs use OAuth2 for authorization. The OAuth2 protocol is a standard protocol that allows external applications
-      to request access to resources. 
+      The jember.ai APIs use OAuth2 for authorization. The APIs support the client credentials grant type.
 
-      The OAuth2 flow used by jember.ai is the client credentials flow. This flow is used when the application is acting on its 
-      own behalf. To obtain an access token, the client sends a POST request to the token endpoint with the client ID and client
-      secret in the Authorization header. The client ID and client secret are base64 encoded.
-
-      The authorization server will return a JWT token in the response body. The token will contain the following fields:
-        * access_token: The JWT token
-        * token_type: The type of token
-        * expires_in: The time in seconds until the token expires
-        * scope: The scope of the token
-
-      To use the JWT token, the client must include the token in the Authorization header of the request. The token should be
+      The client must include the token in the Authorization header of the request. The token should be
       prefixed with the token type. For example, `Bearer <token>`.
+      
   - name: Data Intake
     description: > 
-      ## What are CloudEvents?
-
-      CloudEvents is a specification for describing event data in a common way. CloudEvents seeks to dramatically simplify 
-      event declaration and delivery across services, platforms, and beyond!
-
-      The CloudEvents working group has received a large amount of industry interest, ranging from major cloud providers to 
-      popular SaaS companies. The specification is now under the Cloud Native Computing Foundation.
-
-      Through the use of CloudEvents, the Data Intake API can accept events from a variety of sources. The API 
-      will accept a CloudEvent payload in either JSON or binary format. The CloudEvent payload must contain the
-      following attributes:
-
-        * specversion: The version of the CloudEvents specification which the event uses.
-        * type: Describes the type of event related to the originating occurrence.
-        * source: Identifies the context in which an event happened.
-        * id: Identifies the event.
-        * time: Timestamp of when the occurrence happened.
-        * datacontenttype: Content type of the data value. This is a MIME type.
-        * data: The event payload.
-
-      The CloudEvent payload can be text, JSON, XML, CSV, PDF, or any other format. The payload can also be 
-      binary data supporting files such as images and audio.
-
-      ### Example JSON Payload
-
-      Below is an example of a CloudEvent JSON payload. In this example you can see the CloudEvent standard attributes, 
-      as well as some custom attributes that are specific to the `com.example.someevent` event type. The data element
-      can be any JSON object.
-
-        ```json
-        {
-          "specversion" : "1.0", 
-          "type" : "com.example.someevent",
-          "source" : "/mycontext",
-          "subject": null,
-          "id" : "C234-1234-1234",
-          "time" : "2018-04-05T17:31:00Z",
-          "comexampleextension1" : "value",
-          "comexampleothervalue" : 5,
-          "datacontenttype" : "application/json",
-          "data" : {
-              "appinfoA" : "abc",
-              "appinfoB" : 123,
-              "appinfoC" : true
-          }
-        }
-        ```
-      ### Example Payload Specifying the CloudEvent Attributes in Header Values
-
-         ```
-          ce-specversion: 1.0
-          ce-type: com.example.someevent
-          ce-source: /mycontext
-          ce-id: C234-1234-1234
-          ce-time: 2018-04-05T17:31:00Z
-          ce-comexampleextension1: value
-          ce-comexampleothervalue: 5
-          content-type: application/json
-
-          {
-            "appinfoA" : "abc",
-            "appinfoB" : 123,
-            "appinfoC" : true
-          }
-         ```
-      ### Example with Binary Payload
-         ```json
-         {
-          "specversion" : "1.0",
-          "type" : "com.example.someevent",
-          "source" : "/mycontext",
-          "id" : "A234-1234-1234",
-          "time" : "2018-04-05T17:31:00Z",
-          "comexampleextension1" : "value",
-          "comexampleothervalue" : 5,
-          "datacontenttype" : "application/vnd.apache.thrift.binary",
-          "data_base64" : "... base64 encoded string ..."
-          } 
-        ```
+      Use the Data Intake API to load data into Jmeber AI. The Data Intake API follows the CloudEvents specification.
+      By using this specification, you can send data to Jember AI in nearly any format. Jember AI supports most popular 
+      mime types, including JSON, XML, and CSV.
   - name: Data Query
     description: Query documents in the Data Intake vector store.
 x-tagGroups:
-  - name: Data Intake RAG APIs
+  - name: Authorization APIs
     tags:
       - Authorization
+  - name: Data Intake RAG APIs
+    tags:
       - Data Intake
       - Data Query
 servers:
