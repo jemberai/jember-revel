@@ -2,34 +2,47 @@ description: Document found in vector store based on query.
 type: object
 properties:
   id:
+    type: string
     description: Unique identifier for the document.
     example: "123e4567-e89b-12d3-a456-426614174000"
+  embeddingId:
+    type: string
+    description: Unique identifier for the embedding.
+    example: "123e4567-e89b-12d3-a456-426614175000"
   embedding:
     type: array
+    items:
+      type: number
   content:
-    description: | 
+    type: string
+    description: |
       This is the content of the document. It can be any text that was found in the vector store. The 
       original source is a document that was uploaded. The metadata of the document can be found in the
       metadata field. This will contain the source document id, the distance from the query, and the source
       of the document.
-    type: string
-    example: | 
+    example: |
       This is the content of the document. It can be any text that was found in the vector store. The 
       original source is a document that was uploaded. The metadata of the document can be found in the
       metadata field. This will contain the source document id, the distance from the query, and the source
       of the document.
   media:
     type: array
+    items:
+      type: string
   metadata:
-    description: Metadata of the document.
     type: object
+    description: Metadata of the document.
     properties:
       distance:
-        description: Distance of the document from the query.
         type: number
         format: double
+        description: Distance of the document from the query.
         example: 0.48595285
       source:
-        description: Source of the document.
         type: string
+        description: Source of the document.
         example: Byte array resource [a5ecf6de-5b29-4eee-8832-61ce4e18abd6.csv]
+      parentDocumentId:
+        type: string
+        description: Parent document ID.
+        example: "123e4567-e89b-12d3-a456-426614174000"
